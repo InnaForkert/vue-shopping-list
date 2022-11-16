@@ -1,33 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shopping List</title>
-  <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-  <div id="shopping-list">
-    <h1>{{header}}</h1>
-    <ul>
-      <li v-for='({id, label}, index) in items' :key="id">{{index}}: {{label}}</li>
-    </ul>
-  </div>
-  <script src="https://unpkg.com/vue@3"></script>
-<script>
-  const shoppingList = Vue.createApp({
-    data(){
-      return {
-        header: 'Shopping List App',
-        items: [
-          {id: 1, label: '10 party hats'},
-          {id: 2, label: '2 board games'},
-          {id: 3, label: '20 cups'}
-        ]
-      }
-    }
-  }).mount('#shopping-list')
-</script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="shopping-list">
+      <div class="header">
+        <h1 class="header">{{header}}</h1>
+        <form class="add-item-form" v-if="editing" @submit="saveItem">
+          <input
+            v-model="newItem"
+            type="text"
+            placeholder="Add an item"
+            class="input"
+          />
+          <div class="imp-div">
+            <label class="toggler-wrapper style-8">
+              <input type="checkbox" v-model="newItemHighPriority" />
+              <div class="toggler-slider">
+                <div class="toggler-knob"></div>
+              </div>
+              <span class="priority-span">Important</span>
+            </label>
+            <button
+              @click="saveItem"
+              class="btn"
+              type="submit"
+              :disabled="newItem.length < 3"
+            >
+              Save item
+            </button>
+            <button
+              v-if="editing"
+              class="btn btn-cancel"
+              @click="doEdit(false)"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+        <button v-if="!editing" v-else class="btn" @click="doEdit(true)">
+          Add item
+        </button>
+      </div>
+      <p v-if="items.length===0">Good job! You have bought all your items!</p>
+      <ul>
+        <li
+          v-for="(item, index) in reversedItems"
+          :class="[
+          {strikeout: item.purchased}, 
+          {priority: item.highPriority},
+          {item}]"
+          @click="togglePurchased(item)"
+        >
+          {{item.label}}
+        </li>
+      </ul>
+    </div>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="./index.js"></script>
+  </body>
 </html>
