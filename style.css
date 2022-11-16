@@ -1,3 +1,9 @@
+body {
+  font-family: "Sono", sans-serif;
+}
+
+/* shopping list */
+
 ul {
   list-style: none;
   padding: 0;
@@ -13,82 +19,39 @@ ul {
   color: red;
 }
 
+/* form */
+
 .header {
   text-align: center;
 }
 
-body {
-  font-family: "Sono", sans-serif;
-}
-
-.btn {
-  align-items: center;
-  appearance: none;
-  background-color: #fcfcfd;
-  border-radius: 4px;
-  border-width: 0;
-  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
-    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
-  box-sizing: border-box;
-  color: #36395a;
-  cursor: pointer;
-  display: inline-flex;
-  font-family: "JetBrains Mono", monospace;
-  height: 40px;
-  justify-content: center;
-  line-height: 1;
-  list-style: none;
-  overflow: hidden;
-  padding-left: 16px;
-  padding-right: 16px;
+.priority-span {
   position: relative;
-  text-align: left;
-  text-decoration: none;
-  transition: box-shadow 0.15s, transform 0.15s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  white-space: nowrap;
-  will-change: box-shadow, transform;
-  font-size: 18px;
+  left: 50px;
 }
 
-.btn:focus {
-  box-shadow: #d6d6e7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
-    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+.imp-div {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  align-items: center;
+  margin-block: 15px;
 }
 
-.btn:hover {
-  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
-    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
-  transform: translateY(-2px);
+.item {
+  padding: 12px;
+  border-radius: 10px;
+  background-color: rgb(255, 233, 192);
+  cursor: pointer;
 }
 
-.btn:active {
-  box-shadow: #d6d6e7 0 3px 7px inset;
-  transform: translateY(2px);
-}
-
-.btn:disabled {
-  color: rgba(128, 128, 128, 0.503);
-}
-.btn:disabled:hover {
-  transform: translateY(0);
-  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
-    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
-  cursor: not-allowed;
-}
-
-.btn-cancel {
+.item:nth-child(even) {
   background-color: pink;
-  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
-    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #da1f1f6c 0 -3px 0 inset;
 }
 
-.btn-cancel:hover,
-.btn-cancel:focus {
-  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
-    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #da1f1f6c 0 -3px 0 inset;
+p {
+  text-align: center;
+  margin-top: 25px;
 }
 
 .input {
@@ -98,6 +61,8 @@ body {
   padding: 10px;
   border-radius: 10px;
 }
+
+/* checkbox */
 
 .toggler-wrapper {
   display: flex;
@@ -162,29 +127,75 @@ body {
   background: conic-gradient(#e53935, #9f1815);
 }
 
-.priority-span {
-  position: relative;
-  left: 50px;
-}
+/* buttons */
 
-.imp-div {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
+.btn {
   align-items: center;
-  margin-block: 15px;
-}
-.item {
-  padding: 12px;
-  border-radius: 10px;
-  background-color: rgb(255, 233, 192);
+  appearance: none;
+  background-color: #fcfcfd;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395a;
   cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono", monospace;
+  height: 40px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 18px;
 }
 
-.item:nth-child(even) {
-  background-color: pink;
+.btn:focus {
+  box-shadow: #d6d6e7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
 }
-p {
-  text-align: center;
-  margin-top: 25px;
+
+.btn:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  box-shadow: #d6d6e7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+.btn:disabled {
+  color: rgba(128, 128, 128, 0.503);
+}
+
+.btn:disabled:hover {
+  transform: translateY(0);
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+  cursor: not-allowed;
+}
+
+.btn-cancel {
+  background-color: pink;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #da1f1f6c 0 -3px 0 inset;
+}
+
+.btn-cancel:hover,
+.btn-cancel:focus {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #da1f1f6c 0 -3px 0 inset;
 }
