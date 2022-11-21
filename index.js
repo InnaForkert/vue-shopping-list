@@ -10,6 +10,9 @@ const shoppingList = Vue.createApp({
   },
   computed: {
     reversedItems() {
+      if (localStorage.getItem("list")) {
+        this.items = [...JSON.parse(localStorage.getItem("list"))];
+      }
       return [...this.items].reverse();
     },
   },
@@ -21,6 +24,7 @@ const shoppingList = Vue.createApp({
         highPriority: this.newItemHighPriority,
         purchased: false,
       });
+      localStorage.setItem("list", JSON.stringify(this.items));
       this.newItem = "";
     },
     doEdit(editing) {
@@ -30,6 +34,10 @@ const shoppingList = Vue.createApp({
     },
     togglePurchased(item) {
       item.purchased = !item.purchased;
+    },
+    deleteItem(index) {
+      this.items.splice(index, 1);
+      localStorage.setItem("list", JSON.stringify(this.items));
     },
   },
 }).mount("#shopping-list");

@@ -39,6 +39,8 @@ ul {
 }
 
 .item {
+  display: flex;
+  justify-content: space-between;
   padding: 12px;
   border-radius: 10px;
   background-color: rgb(255, 233, 192);
@@ -159,6 +161,7 @@ p {
   white-space: nowrap;
   will-change: box-shadow, transform;
   font-size: 18px;
+  margin-bottom: 30px;
 }
 
 .btn:focus {

@@ -50,7 +50,7 @@
             </button>
           </div>
         </form>
-        <button v-if="!editing" v-else class="btn" @click="doEdit(true)">
+        <button v-if="!editing" class="btn" @click="doEdit(true)">
           Add item
         </button>
       </div>
@@ -58,13 +58,17 @@
       <ul>
         <li
           v-for="(item, index) in reversedItems"
-          :class="[
-          {strikeout: item.purchased}, 
-          {priority: item.highPriority},
-          {item}]"
+          class="item"
           @click="togglePurchased(item)"
         >
-          {{item.label}}
+          <span
+            :class="[
+          {strikeout: item.purchased},
+          {priority: item.highPriority},
+          ]"
+            >{{item.label}}</span
+          >
+          <span @click="deleteItem(index)">X</span>
         </li>
       </ul>
     </div>
